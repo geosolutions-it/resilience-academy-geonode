@@ -18,13 +18,25 @@
 #
 #########################################################################
 
+from django.conf.urls import url
+from django.views.generic import TemplateView
 from geonode.urls import urlpatterns
 
-'''
-# You can register your own urlpatterns here
 urlpatterns = [
-    url(r'^/?$',
-        homepage,
-        name='home'),
- ] + urlpatterns
-'''
+    url(r'^contact-us/$',
+        TemplateView.as_view(template_name='contact_us.html'),
+        name='contact-us'),
+    url(r'^term-of-use/$',
+        TemplateView.as_view(
+            template_name='terms_use.html'),
+        name='term-of-use'),
+    url(r'^get-started/$',
+        TemplateView.as_view(template_name='get_started.html'),
+        name='get-started'),
+    url(r'^crd-team/$',
+        TemplateView.as_view(template_name='crd_team.html'),
+        name='crd-team'),
+    url(r'^tools-page/$',
+        TemplateView.as_view(template_name='tools.html'),
+        name='tools-page'),
+] + urlpatterns
