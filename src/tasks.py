@@ -241,7 +241,7 @@ def fixtures(ctx):
 --settings={0}".format(_localsettings()), pty=True)
     ctx.run("python manage.py loaddata /tmp/default_site.json \
 --settings={0}".format(_localsettings()), pty=True)
-    ctx.run("python manage.py loaddata /usr/src/resilience_academy_geonode/fixtures/initial_data.json \
+    ctx.run("python manage.py loaddata /usr/src/resilienceacademy/fixtures/initial_data.json \
 --settings={0}".format(_localsettings()), pty=True)
     ctx.run("python manage.py set_all_datasets_alternate \
 --settings={0}".format(_localsettings()), pty=True)
@@ -366,7 +366,7 @@ def _update_geodb_connstring():
 
 
 def _localsettings():
-    settings = os.getenv('DJANGO_SETTINGS_MODULE', 'resilience_academy_geonode.settings')
+    settings = os.getenv('DJANGO_SETTINGS_MODULE', 'resilienceacademy.settings')
     return settings
 
 

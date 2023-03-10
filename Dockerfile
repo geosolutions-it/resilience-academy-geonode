@@ -1,7 +1,7 @@
 FROM python:3.10.2-buster
 LABEL GeoNode development team
 
-RUN mkdir -p /usr/src/resilience_academy_geonode
+RUN mkdir -p /usr/src/resilienceacademy
 
 # Enable postgresql-client-13
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
@@ -45,8 +45,8 @@ RUN pip install pylibmc \
     && pip install sherlock
 
 # add bower and grunt command
-COPY src /usr/src/resilience_academy_geonode/
-WORKDIR /usr/src/resilience_academy_geonode
+COPY src /usr/src/resilienceacademy/
+WORKDIR /usr/src/resilienceacademy
 
 COPY src/monitoring-cron /etc/cron.d/monitoring-cron
 RUN chmod 0644 /etc/cron.d/monitoring-cron
@@ -56,8 +56,8 @@ RUN service cron start
 
 COPY src/wait-for-databases.sh /usr/bin/wait-for-databases
 RUN chmod +x /usr/bin/wait-for-databases
-RUN chmod +x /usr/src/resilience_academy_geonode/tasks.py \
-    && chmod +x /usr/src/resilience_academy_geonode/entrypoint.sh
+RUN chmod +x /usr/src/resilienceacademy/tasks.py \
+    && chmod +x /usr/src/resilienceacademy/entrypoint.sh
 
 COPY src/celery.sh /usr/bin/celery-commands
 RUN chmod +x /usr/bin/celery-commands
@@ -81,4 +81,4 @@ RUN rm -rf /var/lib/apt/lists/*
 EXPOSE 8000
 
 # We provide no command or entrypoint as this image can be used to serve the django project or run celery tasks
-# ENTRYPOINT /usr/src/resilience_academy_geonode/entrypoint.sh
+# ENTRYPOINT /usr/src/resilienceacademy/entrypoint.sh

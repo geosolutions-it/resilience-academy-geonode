@@ -1,1 +1,1 @@
-# Resilience_Academy_Geonode
+# resilienceacademy
