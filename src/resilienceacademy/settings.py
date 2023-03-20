@@ -30,7 +30,7 @@ except ImportError:
     from urlparse import urlparse, urlunparse
 # Load more settings from a file called local_settings.py if it exists
 try:
-    from resilience_academy_geonode.local_settings import *
+    from resilienceacademy.local_settings import *
 #    from geonode.local_settings import *
 except ImportError:
     from geonode.settings import *
@@ -38,13 +38,13 @@ except ImportError:
 #
 # General Django development settings
 #
-PROJECT_NAME = 'resilience_academy_geonode'
+PROJECT_NAME = 'resilienceacademy'
 
 # add trailing slash to site url. geoserver url will be relative to this
 if not SITEURL.endswith('/'):
     SITEURL = '{}/'.format(SITEURL)
 
-SITENAME = os.getenv("SITENAME", 'resilience_academy_geonode')
+SITENAME = os.getenv("SITENAME", 'resilienceacademy')
 
 # Defines the directory that contains the settings file as the LOCAL_ROOT
 # It is used for relative settings elsewhere.

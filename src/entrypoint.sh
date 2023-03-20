@@ -9,7 +9,7 @@ invoke () {
     then
         /usr/local/bin/invoke $@
     else
-        /usr/local/bin/invoke $@ >> /usr/src/resilience_academy_geonode/invoke.log 2>&1
+        /usr/local/bin/invoke $@ >> /usr/src/resilienceacademy/invoke.log 2>&1
     fi
     echo "$@ tasks done"
 }
@@ -78,7 +78,7 @@ else
         invoke prepare
 
         if [ ${FORCE_REINIT} = "true" ]  || [ ${FORCE_REINIT} = "True" ] || [ ! -e "/mnt/volumes/statics/geonode_init.lock" ]; then
-            echo "LOG INIT" > /usr/src/resilience_academy_geonode/invoke.log
+            echo "LOG INIT" > /usr/src/resilienceacademy/invoke.log
             invoke updategeoip
             invoke fixtures
             invoke monitoringfixture

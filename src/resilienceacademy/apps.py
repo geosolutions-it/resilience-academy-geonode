@@ -32,8 +32,8 @@ def run_setup_hooks(*args, **kwargs):
 
 class AppConfig(BaseAppConfig):
 
-    name = "resilience_academy_geonode"
-    label = "resilience_academy_geonode"
+    name = "resilienceacademy"
+    label = "resilienceacademy"
 
     def ready(self):
         super(AppConfig, self).ready()

@@ -6,14 +6,14 @@ export SITEURL=http://localhost:8000/
 export ALLOWED_HOSTS="['localhost',]"
 
 export GEONODE_INSTANCE_NAME=geonode
-export DJANGO_SETTINGS_MODULE=resilience_academy_geonode.settings
-export GEONODE_DATABASE=resilience_academy_geonode
+export DJANGO_SETTINGS_MODULE=resilienceacademy.settings
+export GEONODE_DATABASE=resilienceacademy
 export GEONODE_DATABASE_PASSWORD=geonode
-export GEONODE_GEODATABASE=resilience_academy_geonode_data
+export GEONODE_GEODATABASE=resilienceacademy_data
 export GEONODE_GEODATABASE_PASSWORD=geonode
 
-export DATABASE_URL=postgis://resilience_academy_geonode:geonode@localhost:5432/resilience_academy_geonode
-export GEODATABASE_URL=postgis://resilience_academy_geonode_data:geonode@localhost:5432/resilience_academy_geonode_data
+export DATABASE_URL=postgis://resilienceacademy:geonode@localhost:5432/resilienceacademy
+export GEODATABASE_URL=postgis://resilienceacademy_data:geonode@localhost:5432/resilienceacademy_data
 export DEFAULT_BACKEND_DATASTORE=datastore
 
 export GEOSERVER_WEB_UI_LOCATION=http://localhost:8080/geoserver/

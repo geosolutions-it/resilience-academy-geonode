@@ -2,11 +2,11 @@
   hosts: production
   remote_user: ubuntu
   vars:
-    app_name: resilience_academy_geonode
+    app_name: resilienceacademy
     github_user: geonode
     server_name: 0.0.0.0
     deploy_user: ubuntu
-    code_repository: https://github.com/-----/resilience_academy_geonode.git" # e.g., "https://github.com/GeoNode/resilience_academy_geonode.git"
+    code_repository: https://github.com/-----/resilienceacademy.git" # e.g., "https://github.com/GeoNode/resilienceacademy.git"
     branch_name: master
     virtualenv_dir: "/home/ubuntu/.venvs"
     site_url: "http://localhost:8000/" # The public url of the GeoNode instance

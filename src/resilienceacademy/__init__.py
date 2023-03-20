@@ -18,24 +18,14 @@
 #
 #########################################################################
 
-from __future__ import absolute_import
-
 import os
-from celery import Celery
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'resilience_academy_geonode.settings')
-
-app = Celery('resilience_academy_geonode')
-
-# Using a string here means the worker will not have to
-# pickle the object when using Windows.
-app.config_from_object('django.conf:settings', namespace="CELERY")
-app.autodiscover_tasks()
+__version__ = (4, 0, 0, 'final', 0)
 
 
-@app.task(
-    bind=True,
-    name='resilience_academy_geonode.debug_task',
-    queue='default')
-def debug_task(self):
-    print("Request: {!r}".format(self.request))
+default_app_config = "resilienceacademy.apps.AppConfig"
+
+
+def get_version():
+    import resilienceacademy.version
+    return resilienceacademy.version.get_version(__version__)

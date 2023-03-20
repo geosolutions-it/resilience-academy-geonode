@@ -54,9 +54,9 @@ from paver.easy import (
 from setuptools.command import easy_install
 
 try:
-    from resilience_academy_geonode.local_settings import *
+    from resilienceacademy.local_settings import *
 except ImportError:
-    from resilience_academy_geonode.settings import *
+    from resilienceacademy.settings import *
 
 try:
     from paver.path import pushd
@@ -936,8 +936,8 @@ def _reset():
     from geonode import settings
     path = os.path.join(settings.PROJECT_ROOT, 'development.db')
     sh(f"rm -rf {path}")
-    sh("rm -rf resilience_academy_geonode/development.db")
-    sh("rm -rf resilience_academy_geonode/uploaded/*")
+    sh("rm -rf resilienceacademy/development.db")
+    sh("rm -rf resilienceacademy/uploaded/*")
     _configure_data_dir()
 
 
