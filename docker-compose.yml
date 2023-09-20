@@ -4,7 +4,7 @@ version: '3.9'
 x-common-django:
   &default-common-django
   image: ${COMPOSE_PROJECT_NAME}_django:4.0
-  restart: on-failure
+  restart: unless-stopped
   env_file:
     - .env
   volumes:
@@ -71,7 +71,7 @@ services:
       - nginx-confd:/etc/nginx
       - nginx-certificates:/geonode-certificates
       - statics:/mnt/volumes/statics
-    restart: on-failure
+    restart: unless-stopped
 
   # Gets and installs letsencrypt certificates
   letsencrypt:
@@ -85,7 +85,7 @@ services:
       - LETSENCRYPT_MODE=${LETSENCRYPT_MODE}
     volumes:
       - nginx-certificates:/geonode-certificates
-    restart: on-failure
+    restart: unless-stopped
 
   # Geoserver backend
   geoserver:
@@ -108,7 +108,7 @@ services:
       - backup-restore:/backup_restore
       - data:/data
       - tmp:/tmp
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
@@ -121,7 +121,7 @@ services:
     entrypoint: sleep infinity
     volumes:
       - geoserver-data-dir:/geoserver_data/data
-    restart: on-failure
+    restart: unless-stopped
     healthcheck:
       test: "ls -A '/geoserver_data/data' | wc -l"
 
@@ -136,7 +136,7 @@ services:
     volumes:
       - dbdata:/var/lib/postgresql/data
       - dbbackups:/pg_backups
-    restart: on-failure
+    restart: unless-stopped
     healthcheck:
       test: "pg_isready -d postgres -U postgres"
     # uncomment to enable remote connections to postgres
@@ -149,7 +149,7 @@ services:
     container_name: rabbitmq4${COMPOSE_PROJECT_NAME}
     volumes:
       - rabbitmq:/var/lib/rabbitmq
-    restart: on-failure
+    restart: unless-stopped
 
   jenkins:
     image: jenkins/jenkins:2.164-jdk11
@@ -166,7 +166,7 @@ services:
       - data:/data
     environment:
       - 'JENKINS_OPTS=--httpPort=${JENKINS_HTTP_PORT} --httpsPort=${JENKINS_HTTPS_PORT} --prefix=/jenkins'
-    restart: on-failure
+    restart: unless-stopped
 
 volumes:
   jenkins_data:
