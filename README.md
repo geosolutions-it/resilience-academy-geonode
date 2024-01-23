@@ -1,4 +1,4 @@
-# **This repository is DEPRECATED in favor of [https://github.com/geosolutions-it/UTU-geonode-4.0](https://github.com/geosolutions-it/Resilience-Academy-Geonode-4.0](https://github.com/geosolutions-it/Resilience-Academy-Geonode-4.0)**
+# **This repository is DEPRECATED in favor of [https://github.com/geosolutions-it/Resilience-Academy-Geonode-4.0](https://github.com/geosolutions-it/Resilience-Academy-Geonode-4.0)**
 
 # resilienceacademy
 
